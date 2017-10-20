@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12-sm">
+      <h1>Elasticsearch Status</h1>
+      <ul class="indexList">
+        <li ng-repeat="index in ctrl.indices">
+          <a href="#/index/{{index}}">{{ index }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
