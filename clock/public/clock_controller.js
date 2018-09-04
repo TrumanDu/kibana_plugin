@@ -17,11 +17,19 @@
  * under the License.
  */
 
-export default function (kibana) {
-  return new kibana.Plugin({
-    name: 'clock',
-    uiExports: {
-      visTypes: ['plugins/clock/clock']
-    }
-  });
-}
+import {
+  uiModules
+} from 'ui/modules';
+
+const module = uiModules.get('kibana/clock', ['kibana']);
+
+
+
+// Add a controller to this module
+module.controller('MyClockController', function ($scope, $timeout) {
+  const setTime = function () {
+    $scope.time = Date.now();
+    $timeout(setTime, 1000);
+  };
+  setTime();
+});
